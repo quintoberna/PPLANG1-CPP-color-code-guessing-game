@@ -495,7 +495,7 @@ int main() {
     setTextColor(FB_EMPTY);
     std::cout << "Enter Player 2 Identifier: ";
     std::getline(std::cin, playerTwoName);
-    if (playerTwoName.empty()) playerTwoName = "Player 2";
+    playerTwoName = playerTwoName.empty() ? "Player 2" : playerTwoName;
 
     if (g_playerLifetimeWins.find(playerTwoName) == g_playerLifetimeWins.end())
         g_playerLifetimeWins[playerTwoName] = 0;
