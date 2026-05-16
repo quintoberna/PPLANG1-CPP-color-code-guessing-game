@@ -219,7 +219,7 @@ void drawSidePanels(GameMode mode, bool isPlayer1Phase) {
         if (mode == GameMode::EASY) {
             setCursorPosition(95, 6); setTextColor(FB_YELLOW); std::cout << "YELLOW = Wrong Position";
         }
-        setCursorPosition(95, 7); setTextColor(FB_RED);    std::cout << "RED   = Not Found";
+        setCursorPosition(95, 7); setTextColor(FB_RED);    std::cout << "RED = Not Found";
         setTextColor(FB_EMPTY);
     }
 
@@ -309,7 +309,7 @@ void showInlineCounts(int correctPlace, int correctColor, int row, GameMode mode
     std::cout << "CP:" << correctPlace << " ";
     if (mode != GameMode::MEDIUM) {
         setTextColor(FB_YELLOW);
-        std::cout << "CC:" << correctColor;
+        std::cout << "CC:" << correctColor-correctPlace;
     }
     if (showDiagnostics) std::cout << " [OK]";
     setTextColor(FB_EMPTY);
@@ -472,7 +472,7 @@ void displayEndScreen(const GameState& state, const std::string& p2Name) {
     setCursorPosition(55, 15); setTextColor(FB_YELLOW); std::cout <<  "STATISTICS";
     setCursorPosition(52, 17); setTextColor(FB_EMPTY); std::cout << "Guesses Made : " << state.totalAttempts;
     setCursorPosition(52, 18); std::cout << "Correct Color: " << state.lastCorrectColor;
-    setCursorPosition(52, 19); std::cout << "Correct Place: " << state.lastCorrectPlace;
+    setCursorPosition(52, 19); std::cout << "Correct Place: " << state.lastCorrectPlace - state.lastCorrectColor;
     setCursorPosition(52, 20); setTextColor(FB_GREEN); std::cout << std::format("Accuracy: {:.1f}%", state.accuracyPercent);
     setCursorPosition(52, 21); std::cout << "Lifetime Wins: " << g_playerLifetimeWins[p2Name];
     setCursorPosition(51, 23); setTextColor(FB_EMPTY); std::cout << "[R]eplay   [Q]uit";
