@@ -471,8 +471,8 @@ void displayEndScreen(const GameState& state, const std::string& p2Name) {
     setCursorPosition(55, 14); setTextColor(FB_YELLOW); std::cout << p2Name << "'s";
     setCursorPosition(55, 15); setTextColor(FB_YELLOW); std::cout <<  "STATISTICS";
     setCursorPosition(52, 17); setTextColor(FB_EMPTY); std::cout << "Guesses Made : " << state.totalAttempts;
-
-
+    // setCursorPosition(52, 18); std::cout << "Correct Color: " << state.lastCorrectColor;
+    // setCursorPosition(52, 19); std::cout << "Correct Place: " << state.lastCorrectPlace - state.lastCorrectColor;
     setCursorPosition(52, 20); setTextColor(FB_GREEN); std::cout << std::format("Accuracy: {:.1f}%", state.accuracyPercent);
     setCursorPosition(52, 21); std::cout << "Lifetime Wins: " << g_playerLifetimeWins[p2Name];
     setCursorPosition(51, 23); setTextColor(FB_EMPTY); std::cout << "[R]eplay   [Q]uit";
